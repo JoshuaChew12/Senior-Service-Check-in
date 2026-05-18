@@ -674,7 +674,14 @@ function showLoginLoading() {
 
 }
 
+function formatTime(ts) {
+  const d = new Date(ts);
 
+  return d.toLocaleString("sv-SE", {
+    timeZone: "Asia/Kuala_Lumpur",
+    hour12: false
+  }).replace(",", "");
+}
 
 // =====================================
 // API CALL
@@ -925,7 +932,7 @@ function handleResult(data) {
       <div style="
       font-size:26px;
       ">
-        ${data.time}
+        ${formatTime(data.time)}
       </div>
 
     `;
@@ -981,7 +988,7 @@ function handleResult(data) {
       <div style="
       font-size:32px;
       ">
-        ${data.time}
+        ${formatTime(data.time)}
       </div>
 
     `;
