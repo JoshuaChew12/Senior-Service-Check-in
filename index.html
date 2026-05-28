@@ -24,19 +24,18 @@ body{
   padding:20px;
   
   /* ======================================================== */
-  /* 【核心大改动】大厂极爱使用的 3D 弥散光流光背景                  */
-  /* 利用多个径向渐变（radial-gradient）在背景中打出紫蓝色的“3D 实体光源” */
+  /* 【明亮 3D 核心背景】清透冰川流光背景（明亮、高级、衬托玻璃感）   */
   /* ======================================================== */
   margin:0;
   min-height:100vh;
   box-sizing:border-box;
-  color:#ffffff; /* 白色文字在现代流光背景下极具高级质感 */
+  color:#1e293b; /* 在明亮背景下，使用高档的深石墨色文字 */
   
-  background-color: #0b0f19; /* 高阶深邃蓝黑底色 */
+  background-color: #f1f5f9; /* 基础底色：极简冷白灰 */
   background-image: 
-    radial-gradient(at 0% 0%, rgba(127, 0, 255, 0.25) 0px, transparent 55%),  /* 左上角发射出的超高级科技紫光 */
-    radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.2) 0px, transparent 60%), /* 右下角发射出的炫酷霓虹蓝光 */
-    radial-gradient(at 50% 50%, rgba(30, 41, 59, 0.5) 0px, transparent 100%);
+    radial-gradient(at 0% 0%, rgba(224, 231, 255, 0.9) 0px, transparent 50%),   /* 左上角：明亮的清透冰蓝光 */
+    radial-gradient(at 100% 0%, rgba(2fa, 212, 253, 0.7) 0px, transparent 60%), /* 右上角：高级感十足的薰衣草淡紫光 */
+    radial-gradient(at 50% 100%, rgba(207, 250, 254, 0.8) 0px, transparent 50%);/* 下方：轻盈的初夏薄荷绿光 */
   background-attachment:fixed;
 }
 
@@ -52,41 +51,39 @@ button{
   cursor:pointer;
   
   /* ======================================================== */
-  /* 【3D 实体边框更改】                                      */
+  /* 【高阶明亮 3D 实体按钮】                                   */
   /* ======================================================== */
-  /* 按钮上方用纯白高光，左右用微弱白光，下方用 3.5px 的深灰色作为立体阴影面 */
-  border-top: 1px solid rgba(255, 255, 255, 0.6);
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  /* 按钮四周勾勒一圈高对比度的纯白反射亮边，下方自带 3px 的实体阴影厚度 */
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 3.5px solid #cbd5e1; 
   
-  /* 按钮本身采用极其细腻的珍珠白微渐变 */
-  background: linear-gradient(180deg, #ffffff 0%, #f4f6fa 100%);
+  /* 按钮本身是温润饱满的纯白珍珠渐变 */
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   color: #0f172a;
   
-  /* 大范围消散阴影，配合背景的彩色光源，让按钮完全脱离背景“浮”起来 */
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4); 
+  /* 柔和但范围极广的环境软阴影，让白色按钮在明亮背景上完美悬浮 */
+  box-shadow: 0 10px 25px -5px rgba(148, 163, 184, 0.35); 
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* 按钮点击时的超强物理下压反馈 */
+/* 按钮点击时的物理下压反馈 */
 button:active{
-  transform: translateY(2.5px); /* 点击时真实下压 2.5px */
-  border-bottom-width: 1px; /* 模拟底部厚度被压扁 */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transform: translateY(2.5px); /* 真实下压 */
+  border-bottom-width: 1px; /* 厚度压扁 */
+  box-shadow: 0 3px 6px rgba(148, 163, 184, 0.2);
 }
-/* 优雅弱化返回与退出按钮，带立体框的同时完美融入流光中 */
+/* 优雅弱化返回与退出按钮，保持清透边框并融入冰川背景 */
 button[onclick="logout()"], button[onclick^="goHome"]{
-  background: rgba(255, 255, 255, 0.04);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
-  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: 3px solid rgba(148, 163, 184, 0.15);
+  color: #64748b;
   box-shadow: none;
 }
 button[onclick="logout()"]:active, button[onclick^="goHome"]:active{
   border-bottom-width: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 input{
@@ -95,19 +92,19 @@ input{
   width:220px;
   border-radius:10px;
   
-  /* 输入框也进行 3D 磨砂磨平化，使其内嵌于卡片中 */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  /* 输入框微内嵌处理 */
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.6);
+  color: #1e293b;
   outline: none;
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
-/* 输入框聚焦时，散发出霓虹蓝色的 3D 眼神发光感 */
+/* 输入框聚焦时发光 */
 input:focus{
-  border-color: #00f2fe;
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
 }
 
 #scanner{
@@ -145,11 +142,12 @@ input:focus{
   margin-top:50px;
   
   /* ======================================================== */
-  /* 【毛玻璃卡片核心升级】                                      */
+  /* 【高亮水晶毛玻璃卡片】                                     */
   /* ======================================================== */
-  background: rgba(255, 255, 255, 0.04); /* 极其高透的半透明玻璃基底 */
-  backdrop-filter: blur(24px); /* 极高模糊度，让背景的紫蓝光折射得像顶级雾面玻璃 */
-  -webkit-backdrop-filter: blur(24px);
+  /* 提高不透明度，同时利用极高的背景模糊，把底部的冰蓝和淡紫光晕折射出来 */
+  background: rgba(255, 255, 255, 0.45); 
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   
   border-radius: 20px;
   padding: 30px 20px;
@@ -158,80 +156,80 @@ input:focus{
   margin-right: auto;
   box-sizing: border-box;
   
-  /* 3D 反光边：1px 纯白微光边框，完美勾勒出玻璃在空间中的切面 */
-  border: 1px solid rgba(255, 255, 255, 0.18); 
+  /* 3D 亮点：高亮度纯白边框，模拟阳光照在玻璃切面上的耀眼高光 */
+  border: 1px solid rgba(255, 255, 255, 0.8); 
   
-  /* 采用双层高阶重投影：第一层是大范围消散黑影拉开空间，第二层是近距离环境遮蔽 */
+  /* 极其高档的淡色重叠软阴影，营造卡片悬浮在虚空、并在下方投下真实影子的 3D 视觉 */
   box-shadow: 
-    0 30px 60px -15px rgba(0, 0, 0, 0.6),
-    0 1px 3px rgba(255, 255, 255, 0.05) inset;
+    0 25px 50px -12px rgba(100, 116, 139, 0.18),
+    0 4px 12px rgba(100, 116, 139, 0.04);
 }
 
-/* === 以下为您原有的其他页面 ID，完全独立并同样注入最新的极致 3D 玻璃质感 === */
+/* === 以下为您原有的其他页面 ID，完全独立并同样注入最新高亮 3D 水晶玻璃质感 === */
 
 #home{
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 30px 20px;
   max-width: 360px;
   margin: 20px auto;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(100, 116, 139, 0.18), 0 4px 12px rgba(100, 116, 139, 0.04);
 }
 
 #scanPage{
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 30px 20px;
   max-width: 360px;
   margin: 20px auto;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(100, 116, 139, 0.18), 0 4px 12px rgba(100, 116, 139, 0.04);
 }
 
 #manualPage{
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 30px 20px;
   max-width: 360px;
   margin: 20px auto;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(100, 116, 139, 0.18), 0 4px 12px rgba(100, 116, 139, 0.04);
 }
 
 #dashboardPage{
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 30px 20px;
   max-width: 360px;
   margin: 20px auto;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(100, 116, 139, 0.18), 0 4px 12px rgba(100, 116, 139, 0.04);
 }
 
 #resultPage{
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 30px 20px;
   max-width: 360px;
   margin: 20px auto;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(100, 116, 139, 0.18), 0 4px 12px rgba(100, 116, 139, 0.04);
 }
 
 </style>
