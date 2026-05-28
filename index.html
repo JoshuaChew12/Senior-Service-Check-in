@@ -241,31 +241,43 @@ input:focus{
 <!-- ===================================== -->
 
 <!-- 1. 教会主名称：大厂最爱的立体深海蓝流光渐变字，重字重，略带悬浮感 -->
+<!-- 1. 教会主名称：注入 3D 双层实体悬浮光影，文字瞬间具有厚度和出屏感 -->
 <h2 style="
   font-size: 34px;
   font-weight: 800;
   margin-top: 15px;
   margin-bottom: 4px;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%);
+  background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%); /* 换成更饱满纯净的 App 科技蓝 */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 10px rgba(14, 165, 233, 0.15);
+  
+  /* 核心 3D 光影公式：第一层纯白顶部高光 + 第二层 1px 实体海蓝切面 + 第三层大范围物理悬浮阴影 */
+  text-shadow: 
+    0 -1px 0px rgba(255, 255, 255, 0.9),
+    0 1.5px 0px #172554, 
+    0 8px 16px rgba(23, 37, 84, 0.25);
 ">
 邻恩复兴教会
 </h2>
 
-<!-- 2. 中文系统名：温润沉稳的深石墨色，字重适中，紧凑贴合 -->
+<!-- 2. 中文系统名：温润沉稳的立体石墨字，通过精细的物理切边拉开空间层级 -->
 <h3 style="
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 0;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   color: #1e293b;
   letter-spacing: 0.5px;
+  
+  /* 核心 3D 光影公式：第一层 1px 实体暗色切边 + 第二层 4px 柔和环境留影，使其稳固地凸显出来 */
+  text-shadow: 
+    0 1px 0px #94a3b8,
+    0 4px 8px rgba(30, 41, 59, 0.15);
 ">
 乐临聚会报到系统
 </h3>
+
 
 <!-- 3. 英文系统名：优雅高级的轻量副标题，浅色调，拉开立体层级 -->
 <h4 style="
