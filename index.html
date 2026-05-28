@@ -98,7 +98,10 @@ input:focus{
 
 #scanner{
   width:320px;
-  margin:auto;
+  /* 修复走位核心：强制作为块级元素（block）并在 3D 卡片内部绝对垂直横向居中 */
+  margin: 15px auto;
+  display: block;
+  
   border-radius:12px;
   overflow:hidden;
 }
