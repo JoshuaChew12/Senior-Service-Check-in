@@ -24,19 +24,19 @@ body{
   padding:20px;
   
   /* ======================================================== */
-  /* 【核心大重构】极致 3D 冰川流光弥散背景（冰浅蓝基底 + 更深色光晕）    */
+  /* 【核心改动】纯净冰川海蓝 3D 弥散背景（完全去除紫色元素）       */
   /* ======================================================== */
   margin:0;
   min-height:100vh;
   box-sizing:border-box;
-  color:#0f172a; /* 深海军蓝文字，在明亮冰川背景下高清晰度 */
+  color:#0f172a; 
   
   /* 基础底色：高档清爽的冰浅蓝色 */
   background-color: #e0f2fe; 
-  /* 3D 深色弥散光源：左上角打入极深的梦幻紫，右下角打入深海蓝，与冰浅蓝形成强烈 3D 对比 */
+  /* 3D 深色弥散光源：移除所有紫色，改用深邃海洋蓝与天蓝色交织，与冰浅蓝形成强烈 3D 空间感 */
   background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.45) 0px, transparent 55%),  /* 更深邃的靛紫光晕 */
-    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.5) 0px, transparent 60%), /* 更深邃的极光蓝光晕 */
+    radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.4) 0px, transparent 55%),     /* 更深邃的海洋蓝光晕 */
+    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.5) 0px, transparent 60%), /* 极其清透的天蓝光晕 */
     radial-gradient(at 50% 10%, rgba(255, 255, 255, 0.8) 0px, transparent 50%);
   background-attachment:fixed;
 }
@@ -53,39 +53,26 @@ button{
   cursor:pointer;
   
   /* ======================================================== */
-  /* 【3D 实体按钮核心升级：极其显明的边缘高光边框】              */
+  /* 【3D 实体按钮升级】所有按钮统一享有一模一样的 3D 水晶效果    */
   /* ======================================================== */
-  /* 边框不透明度提升至 0.95，在冰蓝背景中如同锋利的水晶切面，清晰明显 */
+  /* 显明的纯白反射亮边，下方自带 3.5px 的实体承重边 */
   border-top: 1.5px solid rgba(255, 255, 255, 0.95);
   border-left: 1.5px solid rgba(255, 255, 255, 0.7);
   border-right: 1.5px solid rgba(255, 255, 255, 0.7);
-  border-bottom: 4px solid #94a3b8; /* 下方承重边稍微加深加厚，物理下压 3D 感更强 */
+  border-bottom: 3.5px solid #94a3b8; 
   
-  /* 按钮主体采用晶莹的象牙白柔和渐变 */
+  /* 珍珠象牙白饱满渐变 */
   background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
   color: #0f172a;
   
-  /* 增强环境投影，让按钮在深色光晕中产生强烈错觉的悬浮高度 */
-  box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.2); 
+  box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.18); 
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* 按钮点击时的超强物理下压反馈 */
+/* 所有按钮统一享有超强物理下压反馈 */
 button:active{
-  transform: translateY(3px); /* 点击时真实下压 3.5px */
+  transform: translateY(2.5px); /* 点击时真实下压 */
   border-bottom-width: 1px;   /* 底部厚边框瞬间压扁 */
   box-shadow: 0 4px 8px rgba(15, 23, 42, 0.15);
-}
-/* 弱化返回与退出按钮，带显明立体框的同时完美融入冰川流光中 */
-button[onclick="logout()"], button[onclick^="goHome"]{
-  background: rgba(255, 255, 255, 0.4);
-  border: 1.5px solid rgba(15, 23, 42, 0.2);
-  border-bottom: 3.5px solid rgba(15, 23, 42, 0.15);
-  color: #334155;
-  box-shadow: none;
-}
-button[onclick="logout()"]:active, button[onclick^="goHome"]:active{
-  border-bottom-width: 1px;
-  background: rgba(255, 255, 255, 0.6);
 }
 
 input{
@@ -94,7 +81,7 @@ input{
   width:220px;
   border-radius:10px;
   
-  /* 输入框的 3D 水晶磨砂化更改，边缘同样进行显明勾勒 */
+  /* 输入框 3D 水晶磨砂化，边缘勾勒清晰明显的白边 */
   border: 1.5px solid rgba(15, 23, 42, 0.15);
   background: rgba(255, 255, 255, 0.5);
   color: #0f172a;
@@ -102,7 +89,7 @@ input{
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
-/* 输入框聚焦时，散发出明亮的冰蓝色发光边缘 */
+/* 输入框聚焦时发光 */
 input:focus{
   border-color: #0284c7;
   background: #ffffff;
@@ -144,10 +131,10 @@ input:focus{
   margin-top:50px;
   
   /* ======================================================== */
-  /* 【极致显明毛玻璃卡片核心升级】                              */
+  /* 【极致显明毛玻璃卡片】                                    */
   /* ======================================================== */
-  background: rgba(255, 255, 255, 0.45); /* 通透冰晶的高透半透明玻璃基底 */
-  backdrop-filter: blur(24px); /* 将底部的深色蓝紫光晕完美揉碎、折射，形成极其高级的晶莹感 */
+  background: rgba(255, 255, 255, 0.45); /* 晶莹剔透的半透明玻璃基底 */
+  backdrop-filter: blur(24px); /* 将底部的海洋蓝光晕优雅揉碎并透出来 */
   -webkit-backdrop-filter: blur(24px);
   
   border-radius: 20px;
@@ -157,17 +144,15 @@ input:focus{
   margin-right: auto;
   box-sizing: border-box;
   
-  /* 【核心更改：极其显明的 3D 玻璃白边】 */
-  /* 采用 1.5px 粗细、0.85 高不透明度的纯白高光线，让卡片在冰蓝背景下轮廓极其显眼、立体 */
+  /* 1.5px 粗细的纯白高光边缘，轮廓极其显眼明显 */
   border: 1.5px solid rgba(255, 255, 255, 0.85); 
   
-  /* 双层高阶重投影：利用深色晕染阴影，把亮色冰晶卡片在空间中高高“托起” */
   box-shadow: 
     0 25px 50px -12px rgba(15, 23, 42, 0.18),
-    0 1px 0px rgba(255, 255, 255, 0.8) inset; /* 内部顶部极其显明的高光线 */
+    0 1px 0px rgba(255, 255, 255, 0.8) inset;
 }
 
-/* === 以下为您原有的其他页面 ID，完全独立并同样注入最新的冰川 3D 显明玻璃质感 === */
+/* === 以下为您原有的其他页面 ID，完全独立且统一享有最新的显明 3D 玻璃质感 === */
 
 #home{
   background: rgba(255, 255, 255, 0.45);
