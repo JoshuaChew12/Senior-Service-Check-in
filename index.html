@@ -243,41 +243,40 @@ input:focus{
 <!-- 1. 教会主名称：字色锁死为纯正饱满的皇家深邃蓝（无白色），并通过 5 层阴影堆叠出极强的 3D 实体厚度 -->
 <h2 style="
   font-size: 34px;
-  font-weight: 900; /* 加粗字重，让 3D 侧切面更明显 */
+  font-weight: 900; 
   margin-top: 15px;
   margin-bottom: 4px;
-  letter-spacing: -0.5px;
-  color: #1e3a8a; /* 显式字色：饱满尊贵的深海军蓝，不带任何白色渐变 */
+  letter-spacing: 0.5px;
+  color: #1e3a8a; /* 皇家深邃蓝 */
   
-  /* 极致 3D 公式：前4层连续下移刻出实体厚度墙，最后一层大范围扩散黑影拉开空间悬浮感 */
+  /* 精确两层：1px和2px向下延伸，最后用轻量阴影衬托，字迹极度清晰 */
   text-shadow: 
     1px 1px 0px #172554,
     1px 2px 0px #172554,
-    1px 3px 0px #172554,
-    1px 4px 0px #172554,
-    0px 12px 24px rgba(15, 23, 42, 0.35);
+    0px 5px 10px rgba(15, 23, 42, 0.15);
 ">
 邻恩复兴教会
 </h2>
 
+
 <!-- 2. 中文系统名：温润石墨色，同样采用多层立体切面堆叠，让其硬朗地从 3D 玻璃板上凸显出来 -->
 <h3 style="
   font-size: 22px;
-  font-weight: 800; /* 提升字重，让立体厚度完美显现 */
+  font-weight: 700; 
   margin-top: 0;
   margin-bottom: 4px;
-  color: #1e293b; /* 显式字色：高档深石墨色 */
+  color: #1e293b; /* 深石墨色 */
   letter-spacing: 0.5px;
   
-  /* 极致 3D 公式：通过连续 3 层深石墨色侧面堆叠，在明亮背景下产生极强的凸出雕刻感 */
+  /* 精确两层：利用过渡色（#475569 到 #334155）做出柔和的2像素切面 */
   text-shadow: 
-    0px 1px 0px #64748b,
-    0px 2px 0px #475569,
-    0px 3px 0px #334155,
-    0px 8px 16px rgba(30, 41, 59, 0.2);
+    1px 1px 0px #475569,
+    1px 2px 0px #334155,
+    0px 4px 6px rgba(30, 41, 59, 0.1);
 ">
 乐临聚会报到系统
 </h3>
+
 
 <!-- 3. 英文系统名：优雅高级的轻量副标题，浅色调，拉开立体层级 -->
 <h4 style="
